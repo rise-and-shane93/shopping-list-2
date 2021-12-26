@@ -1,4 +1,5 @@
-import {ADD_CATEGORY, ADD_ITEM, REMOVE_ITEM, WELCOME_MSG, EDIT_ITEM} from '../actions/types';
+import { act } from 'react-dom/cjs/react-dom-test-utils.production.min';
+import {ADD_CATEGORY, ADD_ITEM, REMOVE_ITEM, WELCOME_MSG, EDIT_ITEM, REMOVE_CATEGORY} from '../actions/types';
 
 const initialState = {
     message: "",
@@ -86,6 +87,17 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 categories: updatedListRemove
+            }
+        case REMOVE_CATEGORY:
+            let updatedListRemoveCategory = state.categories.filter((el,i) => {
+                if (i !== action.payload.index) {
+                    return el;
+                }
+            })
+            console.log(updatedListRemoveCategory);
+            return {
+                ...state,
+                categories: updatedListRemoveCategory
             }
         default:
             return state;

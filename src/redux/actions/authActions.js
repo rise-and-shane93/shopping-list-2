@@ -1,5 +1,5 @@
 import {WELCOME_MSG, ADD_CATEGORY, 
-    ADD_ITEM, REMOVE_ITEM, EDIT_ITEM} from './types';
+    ADD_ITEM, REMOVE_ITEM, REMOVE_CATEGORY, EDIT_ITEM} from './types';
 
 export const authActions = () => dispatch => {
     dispatch({
@@ -29,6 +29,14 @@ export const removeItem = (catName, itemName) => dispatch => {
     dispatch({
         type: REMOVE_ITEM,
         payload: {catName, itemName}
+    })
+}
+
+export const removeCategory = (name, index) => dispatch => {
+    // console.log(name, itemName);
+    dispatch({
+        type: REMOVE_CATEGORY,
+        payload: {name, index}
     })
 }
 

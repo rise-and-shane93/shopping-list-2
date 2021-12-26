@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import { connect } from "react-redux";
-import { authActions, addItem } from '../redux/actions/authActions';
+import { authActions, addItem, removeCategory } from '../redux/actions/authActions';
 import CategorySubMenu from './CategorySubMenu';
 
 class Category extends Component {
@@ -24,13 +24,14 @@ class Category extends Component {
     }
 
     render() {
-        const {name, index} = this.props;
+        const {name, index, removeCategory} = this.props;
         return (
             <div className="category-header">
                 <h2>{name}</h2>
-                <button onClick={() => (this.openCategoryMenu())} 
-                className={this.state.isButtonPressed ? "button-pressed" : ""}><strong>&#8942;</strong></button>
-                <CategorySubMenu display={this.state.isButtonPressed} />
+                <button className="list-item-button" aria-label="delete" onClick={() => removeCategory(name, index)}><strong>&times;</strong></button>
+                {/* <button onClick={() => (this.openCategoryMenu())} 
+                className={this.state.isButtonPressed ? "button-pressed" : ""}><strong>&#8942;</strong></button> */}
+                {/* <CategorySubMenu display={this.state.isButtonPressed} /> */}
             </div>
         )
     }
@@ -47,6 +48,7 @@ export default connect(
     mapStateToProps,
     {
         authActions,
-        addItem
+        addItem,
+        removeCategory
     }
 )(Category);
