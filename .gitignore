@@ -24,3 +24,6 @@ yarn-error.log*
 
 # lock files
 *.lock
+
+# Ignore keys.js file
+backend/config/**
