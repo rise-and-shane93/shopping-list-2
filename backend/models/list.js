@@ -7,6 +7,7 @@ const listSchema = new Schema({
     // type: String,
     // required: true
     categoryName: {type: String, required: true},
+    categoryId: {type: Schema.Types.ObjectId, required: true},
     items: [{type: String, required: true}]
   }]/*,
   itemList: {

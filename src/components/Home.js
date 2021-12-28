@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { connect } from "react-redux";
 import { authActions, addCategory } from '../redux/actions/authActions';
+import {Link} from 'react-router-dom';
 
 import Category from './Category';
 
@@ -41,7 +42,9 @@ class Home extends Component {
 
         const { categories } = this.props;
         const theCategories = categories.map((el, i) => {
+            // Replacing the code underneath with just the links
             return <Category key={i} index={i} name={el.categoryName} />
+            // return <Link to={`/category/${el.categoryName}`} className='category-link' key={i}><p>{el.categoryName}</p></Link>;
         });
 
         return(

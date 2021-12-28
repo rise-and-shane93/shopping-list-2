@@ -49,6 +49,30 @@
 .category-list {
   max-width: 400px;
   margin: 0 auto;
+  /* display: flex;
+  flex-wrap: wrap; */
+}
+
+.category-link {
+  width: calc(50% - 22px);
+  height: 100px;
+  background-color: #abe6f7;
+  font-weight: bold;
+  border: 1px solid black;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s all ease-in-out;
+}
+
+.category-link:hover {
+  background-color: #61dafb;
+  /* cursor: pointer; */
+}
+
+.category-link p {
+  margin: 0;
 }
 
 .category-list h2 {
